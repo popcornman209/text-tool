@@ -1,0 +1,12 @@
+hello ~v(red)this ~v(green)is ~v(lightblue)a ~v(reset)test.
+~d(1)~v(purple)~s(type_speed,0.1)ballsack~v(reset)~s(type_speed,0.025)
+press enter to continue...~i~c
+figgle bottom
+~v(reset)a~v(bold)a~v(disable)a~v(underline)a~v(reverse)a~v(strikethrough)a~v(black)a~v(red)a~v(green)a~v(orange)a~v(blue)a~v(purple)a~v(cyan)a~v(lightgrey)a~v(darkgrey)a~v(lightred)a~v(lightgreen)a~v(yellow)a~v(lightblue)a~v(pink)a~v(lightcyan)a~v(reset)
+~v(reverse)~v(invisible)
+~v(black)aaaaa
+aa~v(pink)a~v(black)aa
+aa~v(pink)a~v(black)aa
+a~v(pink)a~v(black)a~v(pink)a~v(black)a
+~v(black)aaaaa~v(reset)
+~p(import webbrowser)~p(webbrowser.open("www.leofraser.com"))
