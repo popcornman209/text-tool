@@ -10,29 +10,29 @@ a little text tool for python
 ~i         : press enter to continue<br />
 ~p(s)      : executes string (python)<br />
 
-===== settings =====
-type_speed : delay between letters
+===== settings =====<br />
+type_speed : delay between letters<br />
 
-===== visuals =====
-reset
-bold
-disable
-underline
-reverse
-strikethrough
-invisible
-black
-red
-green
-orange
-blue
-purple
-cyan
-lightgrey
-darkgrey
-lightred
-lightgreen
-yellow
-lightblue
-pink
-lightcyan
+===== visuals =====<br />
+reset<br />
+bold<br />
+disable<br />
+underline<br />
+reverse<br />
+strikethrough<br />
+invisible<br />
+black<br />
+red<br />
+green<br />
+orange<br />
+blue<br />
+purple<br />
+cyan<br />
+lightgrey<br />
+darkgrey<br />
+lightred<br />
+lightgreen<br />
+yellow<br />
+lightblue<br />
+pink<br />
+lightcyan<br />
