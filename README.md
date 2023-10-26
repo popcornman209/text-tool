@@ -1,14 +1,14 @@
 # text-tool
 a little text tool for python
 
-===== syntax =====
-~~         : ~
-~v(n)      : sets visual (see below)
-~c         : clear
-~d(t)      : delay(time)
-~s(s,v)    : setting(name, value)
-~i         : press enter to continue
-~p(s)      : executes string (python)
+===== syntax =====<br />
+~~         : ~<br />
+~v(n)      : sets visual (see below)<br />
+~c         : clear<br />
+~d(t)      : delay(time)<br />
+~s(s,v)    : setting(name, value)<br />
+~i         : press enter to continue<br />
+~p(s)      : executes string (python)<br />
 
 ===== settings =====
 type_speed : delay between letters
