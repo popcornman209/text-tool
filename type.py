@@ -1,4 +1,4 @@
-import os, time
+import os, time, sys
 
 visuals = {
     "reset": '\033[0m',
@@ -33,6 +33,7 @@ visuals = {
 ~s(s,v)    : setting(name, value)
 ~i         : press enter to continue
 ~p(s)      : executes string (python)
+~e(s)      : prints eval(s)
 
 ===== settings =====
 type_speed : delay between letters
@@ -58,7 +59,6 @@ def draw(text):
     settings = {
         "type_speed": 0.025
     }
-    os.system("clear")
     print('\033[0m')
     raised = False
     skip = -1
@@ -72,8 +72,12 @@ def draw(text):
                     skip = i+text[i:].find(")")
                 elif text[i] == "d":
                     output = parentheses(text[i:])
-                    time.sleep(int(text[i:][text[i:].find("(")+1:text[i:].find(")")]))
+                    time.sleep(float(text[i:][text[i:].find("(")+1:text[i:].find(")")]))
                     skip = i+text[i:].find(")")
+                elif text[i] == "e":
+                    output = parentheses(text[i:])
+                    print(eval(output[0]), end="", flush=True)
+                    skip = i+output[1]
                 elif text[i] == "p":
                     output = parentheses(text[i:])
                     exec(output[0])
@@ -83,7 +87,9 @@ def draw(text):
                     val = text[i:][text[i:].find("(")+1:text[i:].find(")")].split(",")
                     settings[val[0]] = float(val[1])
                     skip = i+text[i:].find(")")
-                elif text[i] == "c": os.system("clear")
+                elif text[i] == "c":
+                    if sys.platform == "win32": os.system("cls")
+                    else: os.system("clear")
                 elif text[i] == "~": print("~", end="", flush=True)
                 elif text[i] == "i": input("")
                 else: raise Exception("cant recognize ~"+text[i])
@@ -95,7 +101,7 @@ def draw(text):
                     time.sleep(settings["type_speed"])
 
 if __name__ == "__main__":
-    logo = "~v(pink)~s(type_speed,0)    __                       __            __     __              __\n   / /   ___  ____  _____   / /____  _  __/ /_   / /_____  ____  / /\n  / /   / _ \/ __ \/ ___/  / __/ _ \| |/_/ __/  / __/ __ \/ __ \/ / \n / /___/  __/ /_/ (__  )  / /_/  __/>  </ /_   / /_/ /_/ / /_/ / /  \n/_____/\___/\____/____/   \__/\___/_/|_|\__/   \__/\____/\____/_/  \n~v(reset)____________________________________________________________________\n"
+    logo = "~c~v(pink)~s(type_speed,0)    __                       __            __     __              __\n   / /   ___  ____  _____   / /____  _  __/ /_   / /_____  ____  / /\n  / /   / _ \/ __ \/ ___/  / __/ _ \| |/_/ __/  / __/ __ \/ __ \/ / \n / /___/  __/ /_/ (__  )  / /_/  __/>  </ /_   / /_/ /_/ / /_/ / /  \n/_____/\___/\____/____/   \__/\___/_/|_|\__/   \__/\____/\____/_/  \n~v(reset)____________________________________________________________________\n"
     draw(logo+"1: from file\n2: from input\n>")
     inp = input()
     if inp == "1":
