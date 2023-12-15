@@ -2,8 +2,8 @@
 a little text tool for python <br>
 
 ### syntax<br>
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-~~          : ~<br>
+aaaaaaaaaaaaaaaaaaa
+~~&nbsp;          : ~<br>
 ~v(n)       : sets visual (see below)<br>
 ~c          : clear<br>
 ~d(t)       : delay(time)<br>
