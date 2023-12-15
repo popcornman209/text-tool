@@ -2,27 +2,26 @@
 a little text tool for python <br>
 
 ### syntax<br>
-aaaaaaaaaaaaaaaaaaa
-~~&nbsp;          : ~<br>
-~v(n)       : sets visual (see below)<br>
-~c          : clear<br>
-~d(t)       : delay(time)<br>
-~s(s,v)     : setting(name, value)<br>
-~i          : press enter to continue<br>
-~p(s)       : executes string (python)<br>
-~f          : flush output manually (if flush setting False)<br>
+~~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ~<br>
+~v(n)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: sets visual (see below)<br>
+~c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: clear<br>
+~d(t)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: delay(time)<br>
+~s(s,v)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: setting(name, value)<br>
+~i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: press enter to continue<br>
+~p(s)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: executes string (python)<br>
+~f&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: flush output manually (if flush setting False)<br>
 
 ### settings<br>
-type_speed  : delay between letters<br>
-printOutput : weather to print output or not<br>
-flush       : flush output (if printing)<br>
-use_stdOut  : use stdOut rather than print<br>
+type_speed&nbsp;&nbsp;: delay between letters<br>
+printOutput&nbsp;: weather to print output or not<br>
+flush&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: flush output (if printing)<br>
+use_stdOut&nbsp;&nbsp;: use stdOut rather than print<br>
 
 ### visuals<br>
-cursHide    : hides cursor (not all terminals)<br>
-cursShow    : shows cursor (not all terminals)<br>
-reset       : resets to default appearance<br>
-reverse     : swaps background and text color (i think?)<br>
+cursHide&nbsp;&nbsp;&nbsp;&nbsp;: hides cursor (not all terminals)<br>
+cursShow&nbsp;&nbsp;&nbsp;&nbsp;: shows cursor (not all terminals)<br>
+reset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: resets to default appearance<br>
+reverse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: swaps background and text color (i think?)<br>
 bold<br>
 disable<br>
 underline<br>
