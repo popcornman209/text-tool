@@ -22,7 +22,9 @@ visuals = {
     "yellow": '\033[93m',
     "lightblue": '\033[94m',
     "pink": '\033[95m',
-    "lightcyan": '\033[96m'
+    "lightcyan": '\033[96m',
+    "cursHide": '\033[? 25l',
+    "cursShow": '\033[? 25h'
 }
 
 '''
@@ -34,9 +36,11 @@ visuals = {
 ~i         : press enter to continue
 ~p(s)      : executes string (python)
 ~e(s)      : prints eval(s)
+~f         : flush output manually (if flush setting False)
 
 ===== settings =====
 type_speed : delay between letters
+flush      : flush output (if printing)
 '''
 
 def parentheses(input):
@@ -55,20 +59,24 @@ def parentheses(input):
     return(input[start+1:][:i-3],i-1)
 
 
-def draw(text):
+def draw(text, printOutput):
     settings = {
-        "type_speed": 0.025
+        "type_speed": 0.025,
+        "flush": True
     }
     print('\033[0m')
     raised = False
     skip = -1
+    outputText = ""
+
     for i in range(len(text)):
         if i > skip:
             if raised:
                 raised = False
                 if text[i] == "v":
                     output = parentheses(text[i:])
-                    print(visuals[text[i:][text[i:].find("(")+1:text[i:].find(")")]], end="")
+                    if printOutput: print(visuals[text[i:][text[i:].find("(")+1:text[i:].find(")")]], end="")
+                    outputText += visuals[text[i:][text[i:].find("(")+1:text[i:].find(")")]]
                     skip = i+text[i:].find(")")
                 elif text[i] == "d":
                     output = parentheses(text[i:])
@@ -76,7 +84,8 @@ def draw(text):
                     skip = i+text[i:].find(")")
                 elif text[i] == "e":
                     output = parentheses(text[i:])
-                    print(eval(output[0]), end="", flush=True)
+                    if printOutput: print(eval(output[0]), end="", flush=settings["flush"])
+                    outputText += eval(output[0])
                     skip = i+output[1]
                 elif text[i] == "p":
                     output = parentheses(text[i:])
@@ -85,29 +94,35 @@ def draw(text):
                 elif text[i] == "s":
                     output = parentheses(text[i:])
                     val = text[i:][text[i:].find("(")+1:text[i:].find(")")].split(",")
-                    settings[val[0]] = float(val[1])
+                    settings[val[0]] = eval(val[1])
                     skip = i+text[i:].find(")")
                 elif text[i] == "c":
                     if sys.platform == "win32": os.system("cls")
                     else: os.system("clear")
-                elif text[i] == "~": print("~", end="", flush=True)
+                elif text[i] == "~":
+                    if printOutput: print("~", end="", flush=settings["flush"])
+                    outputText += "~"
                 elif text[i] == "i": input("")
+                elif text[i] == "f":
+                    if printOutput: print("", end="", flush=True)
                 else: raise Exception("cant recognize ~"+text[i])
             else:
                 if text[i] == "~":
                     raised = True
                 else:
-                    print(text[i], end="", flush=True)
-                    time.sleep(settings["type_speed"])
+                    if printOutput: print(text[i], end="", flush=settings["flush"])
+                    outputText += text[i]
+                    if settings["type_speed"] > 0: time.sleep(settings["type_speed"])
+    return outputText
 
 if __name__ == "__main__":
     logo = "~c~v(pink)~s(type_speed,0)    __                       __            __     __              __\n   / /   ___  ____  _____   / /____  _  __/ /_   / /_____  ____  / /\n  / /   / _ \/ __ \/ ___/  / __/ _ \| |/_/ __/  / __/ __ \/ __ \/ / \n / /___/  __/ /_/ (__  )  / /_/  __/>  </ /_   / /_/ /_/ / /_/ / /  \n/_____/\___/\____/____/   \__/\___/_/|_|\__/   \__/\____/\____/_/  \n~v(reset)____________________________________________________________________\n"
-    draw(logo+"1: from file\n2: from input\n>")
+    draw(logo+"1: from file\n2: from input\n>", True)
     inp = input()
     if inp == "1":
-        draw(logo)
-        draw(open(input("file name: "),"r").read())
+        draw(logo, True)
+        draw(open(input("file name: "),"r").read(), True)
     elif inp == "2":
-        draw(logo)
-        draw(input("?: "))
+        draw(logo, True)
+        draw(input("?: "), True)
     else: raise Exception(inp+" isnt a option!")
