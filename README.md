@@ -9,16 +9,18 @@ a little text tool for python
 ~s(s,v)    : setting(name, value)<br />
 ~i         : press enter to continue<br />
 ~p(s)      : executes string (python)<br />
+~f         : flush output manually (if flush setting False)<br />
 
 ===== settings =====<br />
 type_speed : delay between letters<br />
+flush      : flush output (if printing)<br />
 
 ===== visuals =====<br />
-reset<br />
+reset      : resets to default appearance<br />
 bold<br />
 disable<br />
 underline<br />
-reverse<br />
+reverse    : swaps background and text color (i think?)<br />
 strikethrough<br />
 invisible<br />
 black<br />
@@ -36,3 +38,5 @@ yellow<br />
 lightblue<br />
 pink<br />
 lightcyan<br />
+cursHide   : hides cursor (not all terminals)<br />
+cursShow   : shows cursor (not all terminals)<br />
