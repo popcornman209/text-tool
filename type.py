@@ -28,19 +28,21 @@ visuals = {
 }
 
 '''
-~~         : ~
-~v(n)      : sets visual to the name in the colors dictionary above
-~c         : clear
-~d(t)      : delay(time)
-~s(s,v)    : setting(name, value)
-~i         : press enter to continue
-~p(s)      : executes string (python)
-~e(s)      : prints eval(s)
-~f         : flush output manually (if flush setting False)
+~~          : ~
+~v(n)       : sets visual to the name in the colors dictionary above
+~c          : clear
+~d(t)       : delay(time)
+~s(s,v)     : setting(name, value)
+~i          : press enter to continue
+~p(s)       : executes string (python)
+~e(s)       : prints eval(s)
+~f          : flush output manually (if flush setting False)
 
 ===== settings =====
-type_speed : delay between letters
-flush      : flush output (if printing)
+type_speed  : delay between letters
+print_output : weather to print output or not
+flush       : flush output (if printing)
+use_stdOut  : use stdOut rather than print
 '''
 
 def parentheses(input):
@@ -59,7 +61,7 @@ def parentheses(input):
     return(input[start+1:][:i-3],i-1)
 
 def stdOut(string, settings):
-    if settings["printOutput"]:
+    if settings["print_output"]:
         if settings["use_stdOut"]:
             sys.stdout.write(string)
             if settings["flush"]: sys.stdout.flush()
@@ -68,7 +70,7 @@ def stdOut(string, settings):
 def draw(text):
     settings = {
         "type_speed": 0.025,
-        "printOutput": True,
+        "print_output": True,
         "flush": True,
         "use_stdOut": True
     }
