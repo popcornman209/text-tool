@@ -1,6 +1,6 @@
 # text-tool
-a little text tool for python
-<pre>
+a little text tool for python <br>
+
 ===== syntax =====
 ~~         : ~
 ~v(n)      : sets visual (see below)
@@ -40,4 +40,3 @@ pink
 lightcyan
 cursHide   : hides cursor (not all terminals)
 cursShow   : shows cursor (not all terminals)
-</pre>
