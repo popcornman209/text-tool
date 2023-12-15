@@ -2,6 +2,7 @@
 a little text tool for python <br>
 
 ### syntax<br>
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ~~          : ~<br>
 ~v(n)       : sets visual (see below)<br>
 ~c          : clear<br>
