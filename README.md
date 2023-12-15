@@ -13,7 +13,7 @@ a little text tool for python <br>
 
 ### settings<br>
 `type_speed`  : delay between letters<br>
-`printOutput` : weather to print output or not<br>
+`print_output` : weather to print output or not<br>
 `flush`       : flush output (if printing)<br>
 `use_stdOut`  : use stdOut rather than print<br>
 
