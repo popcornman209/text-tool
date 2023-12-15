@@ -1,43 +1,43 @@
 # text-tool
 a little text tool for python
 <pre>
-===== syntax =====<br />
-~~         : ~<br />
-~v(n)      : sets visual (see below)<br />
-~c         : clear<br />
-~d(t)      : delay(time)<br />
-~s(s,v)    : setting(name, value)<br />
-~i         : press enter to continue<br />
-~p(s)      : executes string (python)<br />
-~f         : flush output manually (if flush setting False)<br />
+===== syntax =====
+~~         : ~
+~v(n)      : sets visual (see below)
+~c         : clear
+~d(t)      : delay(time)
+~s(s,v)    : setting(name, value)
+~i         : press enter to continue
+~p(s)      : executes string (python)
+~f         : flush output manually (if flush setting False)
 
-===== settings =====<br />
-type_speed : delay between letters<br />
-flush      : flush output (if printing)<br />
+===== settings =====
+type_speed : delay between letters
+flush      : flush output (if printing)
 
-===== visuals =====<br />
-reset      : resets to default appearance<br />
-bold<br />
-disable<br />
-underline<br />
-reverse    : swaps background and text color (i think?)<br />
-strikethrough<br />
-invisible<br />
-black<br />
-red<br />
-green<br />
-orange<br />
-blue<br />
-purple<br />
-cyan<br />
-lightgrey<br />
-darkgrey<br />
-lightred<br />
-lightgreen<br />
-yellow<br />
-lightblue<br />
-pink<br />
-lightcyan<br />
-cursHide   : hides cursor (not all terminals)<br />
-cursShow   : shows cursor (not all terminals)<br />
+===== visuals =====
+reset      : resets to default appearance
+bold
+disable
+underline
+reverse    : swaps background and text color (i think?)
+strikethrough
+invisible
+black
+red
+green
+orange
+blue
+purple
+cyan
+lightgrey
+darkgrey
+lightred
+lightgreen
+yellow
+lightblue
+pink
+lightcyan
+cursHide   : hides cursor (not all terminals)
+cursShow   : shows cursor (not all terminals)
 </pre>
