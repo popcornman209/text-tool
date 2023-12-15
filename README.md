@@ -2,26 +2,26 @@
 a little text tool for python <br>
 
 ### syntax<br>
-~~&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ~<br>
-~v(n)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: sets visual (see below)<br>
-~c&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: clear<br>
-~d(t)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: delay(time)<br>
-~s(s,v)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: setting(name, value)<br>
-~i&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: press enter to continue<br>
-~p(s)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: executes string (python)<br>
-~f&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: flush output manually (if flush setting False)<br>
+~~&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: ~<br>
+~v(n)&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: sets visual (see below)<br>
+~c&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: clear<br>
+~d(t)&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: delay(time)<br>
+~s(s,v)&ensp;&ensp;&ensp;&ensp;&ensp;: setting(name, value)<br>
+~i&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: press enter to continue<br>
+~p(s)&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: executes string (python)<br>
+~f&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: flush output manually (if flush setting False)<br>
 
 ### settings<br>
-type_speed&nbsp;&nbsp;: delay between letters<br>
-printOutput&nbsp;: weather to print output or not<br>
-flush&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: flush output (if printing)<br>
-use_stdOut&nbsp;&nbsp;: use stdOut rather than print<br>
+type_speed&ensp;&ensp;: delay between letters<br>
+printOutput&ensp;: weather to print output or not<br>
+flush&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: flush output (if printing)<br>
+use_stdOut&ensp;&ensp;: use stdOut rather than print<br>
 
 ### visuals<br>
-cursHide&nbsp;&nbsp;&nbsp;&nbsp;: hides cursor (not all terminals)<br>
-cursShow&nbsp;&nbsp;&nbsp;&nbsp;: shows cursor (not all terminals)<br>
-reset&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: resets to default appearance<br>
-reverse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: swaps background and text color (i think?)<br>
+cursHide&ensp;&ensp;&ensp;&ensp;: hides cursor (not all terminals)<br>
+cursShow&ensp;&ensp;&ensp;&ensp;: shows cursor (not all terminals)<br>
+reset&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;: resets to default appearance<br>
+reverse&ensp;&ensp;&ensp;&ensp;&ensp;: swaps background and text color (i think?)<br>
 bold<br>
 disable<br>
 underline<br>
