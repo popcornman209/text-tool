@@ -58,13 +58,21 @@ def parentheses(input):
         i+=1
     return(input[start+1:][:i-3],i-1)
 
+def stdOut(string, settings):
+    if settings["printOutput"]:
+        if settings["use_stdOut"]:
+            sys.stdout.write(string)
+            if settings["flush"]: sys.stdout.flush()
+        else: print(string, end="", flush=settings["flush"])
 
-def draw(text, printOutput):
+def draw(text):
     settings = {
         "type_speed": 0.025,
-        "flush": True
+        "printOutput": True,
+        "flush": True,
+        "use_stdOut": True
     }
-    print('\033[0m')
+    stdOut('\033[0m', settings)
     raised = False
     skip = -1
     outputText = ""
@@ -75,7 +83,7 @@ def draw(text, printOutput):
                 raised = False
                 if text[i] == "v":
                     output = parentheses(text[i:])
-                    if printOutput: print(visuals[text[i:][text[i:].find("(")+1:text[i:].find(")")]], end="")
+                    stdOut(visuals[text[i:][text[i:].find("(")+1:text[i:].find(")")]], settings)
                     outputText += visuals[text[i:][text[i:].find("(")+1:text[i:].find(")")]]
                     skip = i+text[i:].find(")")
                 elif text[i] == "d":
@@ -84,7 +92,7 @@ def draw(text, printOutput):
                     skip = i+text[i:].find(")")
                 elif text[i] == "e":
                     output = parentheses(text[i:])
-                    if printOutput: print(eval(output[0]), end="", flush=settings["flush"])
+                    stdOut(eval(output[0]), settings)
                     outputText += eval(output[0])
                     skip = i+output[1]
                 elif text[i] == "p":
@@ -100,29 +108,29 @@ def draw(text, printOutput):
                     if sys.platform == "win32": os.system("cls")
                     else: os.system("clear")
                 elif text[i] == "~":
-                    if printOutput: print("~", end="", flush=settings["flush"])
+                    stdOut("~", settings)
                     outputText += "~"
                 elif text[i] == "i": input("")
                 elif text[i] == "f":
-                    if printOutput: print("", end="", flush=True)
+                    sys.stdout.flush()
                 else: raise Exception("cant recognize ~"+text[i])
             else:
                 if text[i] == "~":
                     raised = True
                 else:
-                    if printOutput: print(text[i], end="", flush=settings["flush"])
+                    stdOut(text[i], settings)
                     outputText += text[i]
                     if settings["type_speed"] > 0: time.sleep(settings["type_speed"])
     return outputText
 
 if __name__ == "__main__":
     logo = "~c~v(pink)~s(type_speed,0)    __                       __            __     __              __\n   / /   ___  ____  _____   / /____  _  __/ /_   / /_____  ____  / /\n  / /   / _ \/ __ \/ ___/  / __/ _ \| |/_/ __/  / __/ __ \/ __ \/ / \n / /___/  __/ /_/ (__  )  / /_/  __/>  </ /_   / /_/ /_/ / /_/ / /  \n/_____/\___/\____/____/   \__/\___/_/|_|\__/   \__/\____/\____/_/  \n~v(reset)____________________________________________________________________\n"
-    draw(logo+"1: from file\n2: from input\n>", True)
+    draw(logo+"1: from file\n2: from input\n>")
     inp = input()
     if inp == "1":
-        draw(logo, True)
-        draw(open(input("file name: "),"r").read(), True)
+        draw(logo)
+        draw(open(input("file name: "),"r").read())
     elif inp == "2":
-        draw(logo, True)
-        draw(input("?: "), True)
+        draw(logo)
+        draw(input("?: "))
     else: raise Exception(inp+" isnt a option!")
