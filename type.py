@@ -60,12 +60,13 @@ def parentheses(input):
         i+=1
     return(input[start+1:][:i-3],i-1)
 
-def stdOut(string, settings):
+def stdOut(string, settings, outputText):
     if settings["print_output"]:
         if settings["use_stdOut"]:
             sys.stdout.write(string)
             if settings["flush"]: sys.stdout.flush()
         else: print(string, end="", flush=settings["flush"])
+    outputText+=string
 
 def draw(text):
     settings = {
@@ -74,10 +75,10 @@ def draw(text):
         "flush": True,
         "use_stdOut": True
     }
-    stdOut('\033[0m', settings)
+    outputText = ""
+    stdOut('\033[0m', settings, outputText)
     raised = False
     skip = -1
-    outputText = ""
 
     for i in range(len(text)):
         if i > skip:
@@ -85,8 +86,7 @@ def draw(text):
                 raised = False
                 if text[i] == "v":
                     output = parentheses(text[i:])
-                    stdOut(visuals[text[i:][text[i:].find("(")+1:text[i:].find(")")]], settings)
-                    outputText += visuals[text[i:][text[i:].find("(")+1:text[i:].find(")")]]
+                    stdOut(visuals[text[i:][text[i:].find("(")+1:text[i:].find(")")]], settings, outputText)
                     skip = i+text[i:].find(")")
                 elif text[i] == "d":
                     output = parentheses(text[i:])
@@ -94,8 +94,7 @@ def draw(text):
                     skip = i+text[i:].find(")")
                 elif text[i] == "e":
                     output = parentheses(text[i:])
-                    stdOut(eval(output[0]), settings)
-                    outputText += eval(output[0])
+                    stdOut(eval(output[0]), settings, outputText)
                     skip = i+output[1]
                 elif text[i] == "p":
                     output = parentheses(text[i:])
@@ -106,12 +105,8 @@ def draw(text):
                     val = text[i:][text[i:].find("(")+1:text[i:].find(")")].split(",")
                     settings[val[0]] = eval(val[1])
                     skip = i+text[i:].find(")")
-                elif text[i] == "c":
-                    if sys.platform == "win32": os.system("cls")
-                    else: os.system("clear")
-                elif text[i] == "~":
-                    stdOut("~", settings)
-                    outputText += "~"
+                elif text[i] == "c": stdOut("\033c", settings, outputText)
+                elif text[i] == "~": stdOut("~", settings, outputText)
                 elif text[i] == "i": input("")
                 elif text[i] == "f":
                     sys.stdout.flush()
@@ -120,8 +115,7 @@ def draw(text):
                 if text[i] == "~":
                     raised = True
                 else:
-                    stdOut(text[i], settings)
-                    outputText += text[i]
+                    stdOut(text[i], settings, outputText)
                     if settings["type_speed"] > 0: time.sleep(settings["type_speed"])
     return outputText
 
